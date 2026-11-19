@@ -457,8 +457,6 @@ section[id],article[id]{scroll-margin-top:calc(96*var(--u))}
     <a class="btn fill" href="quote.html">Get a Quote</a>
     <a class="btn ghost" href="#services">Explore services</a>
   </div>
-  <button class="scard" data-in id="sc" type="button">Scroll down<br>&amp; discover
-    <svg viewBox="0 0 22 22"><path d="M11 3v15M5 12l6 6 6-6"/></svg></button>
 </section>
 
 <!-- ABOUT -->
@@ -671,7 +669,7 @@ section[id],article[id]{scroll-margin-top:calc(96*var(--u))}
   else {
     var E = 'cubic-bezier(.2,.75,.2,1)';
     [['nav','translateY(-14px)',0,900],['l1','translateY(105%)',250,1100],['l2','translateY(105%)',370,1100],
-     ['sub','translateY(12px)',620,900],['hb','translateY(14px)',740,900],['sc','translateY(40px) scale(.96)',880,1100]]
+     ['sub','translateY(12px)',620,900],['hb','translateY(14px)',740,900]]
     .forEach(function(a){ document.getElementById(a[0]).animate([{opacity:0,transform:a[1]},{opacity:1,transform:'none'}],{delay:a[2],duration:a[3],easing:E,fill:'backwards'}); });
     requestAnimationFrame(done); setTimeout(done, 3000);
   }
@@ -679,8 +677,6 @@ section[id],article[id]{scroll-margin-top:calc(96*var(--u))}
   // reveal
   var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); if (e.target.id === 'dash') dashIn(); } }); }, { threshold: .15 });
   document.querySelectorAll('.reveal').forEach(function(n){ if (R){ n.classList.add('in'); } else io.observe(n); });
-
-  document.getElementById('sc').onclick = function(){ document.getElementById('about').scrollIntoView({ behavior: R ? 'auto' : 'smooth' }); };
 
   // scene crossfade
   var day = document.getElementById('day'), vio = document.getElementById('violet'), night = document.getElementById('night'), nav = document.getElementById('nav'), endS = document.getElementById('contact');
